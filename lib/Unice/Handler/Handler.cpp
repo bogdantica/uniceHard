@@ -20,19 +20,12 @@ public:
 
         this->comm = new Communication();
 
-        // retrive unice type based on unice UID
-        unsigned int uniceType = 1000;
-
-        this->unice = new Unice(uniceType);
+        this->unice = new Unice();
 
     }
 
     void setup() {
-
         this->comm->connect();
-
-//        this->comm->getUniceData();
-
     }
 
     void loop() {
@@ -57,6 +50,7 @@ public:
             Serial.println(message);
         }
 
+//        this->comm->sendMessage()
 //        this->comm->sendMessage("Unice Message");
 
         delay(1000);

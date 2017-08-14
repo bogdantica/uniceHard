@@ -26,7 +26,9 @@ public:
 
     String getUniceData() {
 
-        //todo update this
+        return "{\"name\":\"Rin Unice\",\"uid\":\"rin_unice_1234\",\"devices\":[{\"name\":\"Temperature\",\"device_type\":60,\"type\":{\"name\":\"Sensor\",\"device_type\":60},\"state\":{\"state\":\"0\",\"target\":\"0\"}},{\"name\":\"living_light\",\"device_type\":50,\"type\":{\"name\":\"Percentage\",\"device_type\":50},\"state\":{\"state\":\"0\",\"target\":\"58\"}},{\"name\":\"Heating HVAC\",\"device_type\":20,\"type\":{\"name\":\"Triple\",\"device_type\":20},\"state\":{\"state\":\"0\",\"target\":\"0\"}},{\"name\":\"Bedroom Light\",\"device_type\":10,\"type\":{\"name\":\"Double\",\"device_type\":10},\"state\":{\"state\":\"0\",\"target\":\"0\"}}]}";
+
+        this->connectWifi();
 
         Serial.println("Start to fetch");
 
@@ -34,14 +36,23 @@ public:
 
         http->begin("unice1.tk/unices/uid/rin_unice_1234");
 
-        http->GET();
-        Serial.println("After to fetch");
+        int code = http->GET();
+
+
+        Serial.println("HTTP Code:");
+        Serial.println(code);
 
         String data = http->getString();
 
         http->end();
 
-        Serial.println(data);
+        if (code > 0) {
+            Serial.println(data);
+
+        } else {
+            Serial.println(http->errorToString(code));
+        }
+
 
         Serial.println("End to fetch");
 

@@ -11,28 +11,16 @@ protected:
 
     Device *devices[];
 
-
 public:
 
-    Unice(unsigned int uniceType) {
+    void handleMessage(String message) {
 
-        switch (uniceType) {
-
-            case 1000:
-
-                break;
-
-            case 2000:
-
-                break;
-
-            default:
-
-                break;
-        }
     }
 
-    void handleMessage(String message) {
+    void init(String message) {
+
+
+        Serial.println(message);
 
     }
 
