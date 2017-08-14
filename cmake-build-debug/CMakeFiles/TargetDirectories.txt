@@ -1,0 +1,11 @@
+/Work/unice/hard/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Work/unice/hard/cmake-build-debug/CMakeFiles/hard.dir
+/Work/unice/hard/cmake-build-debug/CMakeFiles/PLATFORMIO_REBUILD_PROJECT_INDEX.dir
+/Work/unice/hard/cmake-build-debug/CMakeFiles/PLATFORMIO_UPDATE_ALL.dir
+/Work/unice/hard/cmake-build-debug/CMakeFiles/PLATFORMIO_UPLOADFS.dir
+/Work/unice/hard/cmake-build-debug/CMakeFiles/PLATFORMIO_BUILD.dir
+/Work/unice/hard/cmake-build-debug/CMakeFiles/PLATFORMIO_PROGRAM.dir
+/Work/unice/hard/cmake-build-debug/CMakeFiles/PLATFORMIO_TEST.dir
+/Work/unice/hard/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Work/unice/hard/cmake-build-debug/CMakeFiles/PLATFORMIO_CLEAN.dir
+/Work/unice/hard/cmake-build-debug/CMakeFiles/PLATFORMIO_UPLOAD.dir
