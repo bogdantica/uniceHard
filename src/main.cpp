@@ -7,7 +7,10 @@
 
 Handler *handler = new Handler();
 
+
 void setup() {
+
+    Serial.begin(115200);
 
     handler->setup();
 }

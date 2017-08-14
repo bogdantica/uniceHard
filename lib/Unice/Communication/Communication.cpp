@@ -3,6 +3,7 @@
 //
 
 #include "ESP8266WiFi.h"
+#include "ESP8266HTTPClient.h"
 #include "WebSocketClient.h"
 
 
@@ -23,13 +24,40 @@ public:
 
     }
 
+    String getUniceData() {
+
+        //todo update this
+
+        Serial.println("Start to fetch");
+
+        HTTPClient *http = new HTTPClient();
+
+        http->begin("unice1.tk/unices/uid/rin_unice_1234");
+
+        http->GET();
+        Serial.println("After to fetch");
+
+        String data = http->getString();
+
+        http->end();
+
+        Serial.println(data);
+
+        Serial.println("End to fetch");
+
+
+        return data;
+    }
+
     bool connect() {
 
         if (!this->connectWifi()) {
+            Serial.println("WiFi Connection Fail");
             return false;
         }
 
         if (!this->connectWebSocket()) {
+            Serial.println("WebSocket Connection Fail");
             return false;
         }
 
@@ -42,6 +70,7 @@ public:
         return this->client->connected();
 
     }
+
 
     String incomingMessage() {
         String buffer;
@@ -60,16 +89,17 @@ protected:
 
     bool connectWifi() {
 
-        Serial.println();
-
+        if (WiFi.status() == WL_CONNECTED) {
+            return true;
+        }
 
         WiFi.begin("T_I_K", "P@r0l@123");
 
         int tries = 10;
         int currentTry = 0;
-        while (WiFi.status() != WL_CONNECTED) {
 
-            delay(1000);
+        while (WiFi.status() != WL_CONNECTED) {
+            delay(500);
             currentTry++;
             if (currentTry >= tries) {
                 break;

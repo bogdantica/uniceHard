@@ -29,21 +29,21 @@ public:
 
     void setup() {
 
-        Serial.begin(115200);
+        this->comm->connect();
 
-        bool connectionStatus = this->comm->connect();
+//        this->comm->getUniceData();
 
     }
 
     void loop() {
 
-        if (!this->comm->checkConnection()) {
-            Serial.println();
-            Serial.println("Try to Reconnect");
-
-            this->comm->connect();
-
-        }
+//        if (!this->comm->checkConnection()) {
+//            Serial.println();
+//            Serial.println("Try to Reconnect");
+//
+//            this->comm->connect();
+//
+//        }
 
         //check incoming message from server
         String message;
@@ -57,7 +57,7 @@ public:
             Serial.println(message);
         }
 
-        this->comm->sendMessage("Unice Message");
+//        this->comm->sendMessage("Unice Message");
 
         delay(1000);
     }
